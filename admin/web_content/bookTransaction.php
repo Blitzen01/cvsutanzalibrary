@@ -19,6 +19,7 @@
                         <th>Book Title</th>
                         <th>Book Call No.</th>
                         <th>Pickup Date</th>
+                        <th>Due Date</th>
                         <th>Return Date</th>
                         <th>Fine</th>
                         <th>Course & Section</th>
@@ -52,6 +53,7 @@
                             <td><?php echo $rowBorrowed["bookTitle"]; ?></td>
                             <td><?php echo $rowBorrowed["bookCallNo"]; ?></td>
                             <td><?php echo $rowBorrowed["pickupDate"]; ?></td>
+                            <td><?php echo $rowBorrowed["dueDate"]; ?></td>
                             <td><?php echo $rowBorrowed["returnDate"]; ?></td>
                             <td><?php echo ('₱'), empty($rowBorrowed["fine"]) ? 0 : $rowBorrowed["fine"]; ?></td>
                             <td><?php echo $rowBorrowed["courseSection"]; ?></td>

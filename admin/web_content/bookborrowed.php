@@ -18,7 +18,7 @@
                         <th>Book Title</th>
                         <th>Book Call No.</th>
                         <th>Pickup Date</th>
-                        <th>Return Date</th>
+                        <th>Due Date</th>
                         <th>Fine</th>
                         <th>Course & Section</th>
                         <th>Email</th>
@@ -29,6 +29,10 @@
                     // Output data of each row
                     while ($rowBorrowed = $resultBorrowed->fetch_assoc()) {
                         $id = $rowBorrowed["id"];
+                        date_default_timezone_set('Asia/Manila');
+
+                        // Get the current date
+                        $currentDate = date('Y-m-d');
                         ?>
                         <tr>
                             <td>
@@ -42,7 +46,8 @@
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
                                         data-callno="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
-                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                        data-due="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                        data-return="<?php echo $currentDate; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Returned
                                 </button> 
                                 <button id="book_missing" class="btn btn-warning btn-sm book_missing"
@@ -55,7 +60,8 @@
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
                                         data-callno="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
-                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                        data-due="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                        data-return="<?php echo $currentDate; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Missing
                                 </button> 
                                 <button id="book_damage" class="btn btn-danger btn-sm book_damage"
@@ -68,7 +74,8 @@
                                         data-title="<?php echo $rowBorrowed["bookTitle"]; ?>"
                                         data-callNo="<?php echo $rowBorrowed["bookCallNo"]; ?>"
                                         data-pickup="<?php echo $rowBorrowed["pickupDate"]; ?>"
-                                        data-return="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                        data-due="<?php echo $rowBorrowed["returnDate"]; ?>"
+                                        data-return="<?php echo $currentDate; ?>"
                                         data-fine="<?php echo $rowBorrowed["fine"]; ?>">Damaged
                                 </button> 
                             </td>
